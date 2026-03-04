@@ -1,0 +1,28 @@
+<div *ngIf="message"
+     [ngStyle]="{
+       'background-color': isError ? '#f8d7da' : '#d4edda',
+       'color': isError ? '#721c24' : '#155724',
+       'padding': '10px',
+       'margin-bottom': '10px'
+     }">
+  {{message}}
+</div>
+
+<form (ngSubmit)="signup()">
+
+  <input [(ngModel)]="user.username" name="username" placeholder="Username" required />
+  <input [(ngModel)]="user.email" name="email" placeholder="Email" />
+  <input [(ngModel)]="user.mobile" name="mobile" placeholder="Mobile" />
+  <input [(ngModel)]="user.password" name="password" type="password" placeholder="Password" />
+  <input [(ngModel)]="user.address" name="address" placeholder="Address" />
+
+  <select [(ngModel)]="user.role" name="role">
+    <option value="USER">USER</option>
+    <option value="ADMIN">ADMIN</option>
+    <option value="DELIVERY BOY">DELIVERY BOY</option>
+    <option value="ACCOUNTANT">ACCOUNTANT</option>
+  </select>
+
+  <button type="submit">Register</button>
+
+</form>

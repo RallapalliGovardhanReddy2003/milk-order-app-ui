@@ -1,0 +1,75 @@
+.dashboard {
+  padding: 40px;
+  min-height: 80vh;
+  background: linear-gradient(135deg, #f0f8ff, #ffffff);
+  text-align: center;
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #007bff;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 18px;
+}
+
+.users { border-top: 6px solid #28a745; }
+.products { border-top: 6px solid #007bff; }
+.orders { border-top: 6px solid #ffc107; }
+.btn {
+  margin-top: 15px;
+  display: inline-block;
+  padding: 8px 18px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: 0.3s;
+  color: white;
+}
+
+/* Users Button */
+.users .btn {
+  background: #28a745;
+}
+
+/* Products Button */
+.products .btn {
+  background: #007bff;
+}
+
+/* Orders Button */
+.orders .btn {
+  background: #ffc107;
+  color: black;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}

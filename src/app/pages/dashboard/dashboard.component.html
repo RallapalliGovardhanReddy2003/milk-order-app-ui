@@ -1,0 +1,32 @@
+<section class="dashboard">
+
+  <h1 class="title">Milk Order Dashboard 📊</h1>
+
+
+
+  <div class="cards">
+
+    <!-- USERS -->
+    <div class="card users">
+      <h2>{{ summary.totalUsers }}</h2>
+      <p>Total Users</p>
+      <a routerLink="/users" class="btn">View Users</a>
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="card products">
+      <h2>{{ summary.totalProducts }}</h2>
+      <p>Total Products</p>
+      <a routerLink="/products" class="btn">View Products</a>
+    </div>
+
+    <!-- ORDERS -->
+    <div class="card orders">
+      <h2>{{ summary.totalOrders }}</h2>
+      <p>Total Orders</p>
+      <a routerLink="/orders" class="btn">View Orders</a>
+    </div>
+
+  </div>
+
+</section>

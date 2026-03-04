@@ -1,0 +1,63 @@
+<h2>User Management</h2>
+
+<button class="primary-btn" (click)="getAllUsers()">Load Users</button>
+
+<table *ngIf="users.length > 0" class="user-table">
+
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>Role</th>
+    <th>Address</th>
+    <th>Status</th>
+    <th>Actions</th>
+
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let u of users">
+    <td>{{ u.id }}</td>
+    <td>{{ u.username }}</td>
+    <td>{{ u.email }}</td>
+    <td>{{ u.mobile }}</td>
+    <td>{{ u.role }}</td>
+    <td>{{ u.address }}</td>
+    <td>
+  <span [ngClass]="u.deleted ? 'deleted' : 'active'">
+    {{ u.deleted ? 'Deleted' : 'Active' }}
+  </span>
+    </td>
+    <td>
+      <button class="edit-btn" (click)="edit(u)">Edit</button>
+      <button class="delete-btn" (click)="delete(u.id)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+
+</table>
+
+<!-- MODAL OVERLAY -->
+<div class="modal-overlay" *ngIf="editingId !== null">
+
+  <div class="modal-card">
+
+    <h3>Update User</h3>
+
+    <input [(ngModel)]="selectedUser.username" placeholder="Username">
+    <input [(ngModel)]="selectedUser.email" placeholder="Email">
+    <input [(ngModel)]="selectedUser.mobile" placeholder="Mobile">
+    <input [(ngModel)]="selectedUser.role" placeholder="Role">
+    <input [(ngModel)]="selectedUser.address" placeholder="Address">
+
+    <div class="modal-actions">
+      <button class="primary-btn" (click)="update()">Update</button>
+      <button class="cancel-btn" (click)="cancel()">Cancel</button>
+    </div>
+
+  </div>
+
+</div>

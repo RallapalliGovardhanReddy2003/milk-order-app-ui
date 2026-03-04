@@ -1,0 +1,25 @@
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  padding: 25px;
+  background: linear-gradient(180deg, #f8fbff, #e6f2ff);
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05);
+  border-right: 1px solid #dde6f1;
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: 12px;
+  color: #2c3e50;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.sidebar a:hover {
+  background: #dbeafe;
+  color: #007bff;
+  transform: translateX(5px);
+}

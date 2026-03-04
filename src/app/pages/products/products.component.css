@@ -1,0 +1,111 @@
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.top-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.primary-btn {
+  padding: 8px 16px;
+  background: #2a5298;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add-btn {
+  background: #28a745;
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-table th {
+  background: #2c3e50;
+  color: white;
+  padding: 10px;
+}
+
+.product-table td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.table-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.edit-btn {
+  background: #2196f3;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-right: 5px;
+}
+
+.delete-btn {
+  background: #f44336;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-card {
+  background: white;
+  padding: 25px;
+  width: 400px;
+  border-radius: 10px;
+}
+
+.modal-card input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cancel-btn {
+  background: gray;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+}
+
+.address-cell {
+  max-width: 250px;
+  white-space: normal;
+  font-size: 13px;
+}
+.status-active {
+  color: green;
+  font-weight: bold;
+}
+
+.status-deleted {
+  color: red;
+  font-weight: bold;
+}

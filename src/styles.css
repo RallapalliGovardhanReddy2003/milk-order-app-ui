@@ -1,1 +1,59 @@
-/* You can add global styles to this file, and also import other style files */
+/* ===== Common Page Container ===== */
+.page-container {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #4CAF50, #2196F3);
+  padding: 20px;
+}
+
+/* ===== Common Card Style ===== */
+.page-card {
+  background: white;
+  padding: 40px;
+  width: 380px;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* ===== Titles ===== */
+.page-card h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* ===== Inputs ===== */
+.page-card input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* ===== Buttons ===== */
+.page-card button {
+  width: 100%;
+  padding: 10px;
+  background: #4CAF50;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.page-card button:hover {
+  background: #388E3C;
+}
+
+/* ===== Animation ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

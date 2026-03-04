@@ -1,0 +1,72 @@
+<h2 class="title">Order Management</h2>
+
+<div class="top-actions">
+  <button class="primary-btn" (click)="getAllOrders()">Load Orders</button>
+  <button class="primary-btn add-btn" (click)="openAddModal()">Create Order</button>
+</div>
+
+<!-- TABLE -->
+<table *ngIf="orders.length > 0" class="order-table">
+
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Customer</th>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Total Price</th>
+    <th>Delivery Address</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let o of orders">
+    <td>{{ o.id }}</td>
+    <td>{{ o.customerName }}</td>
+    <td>{{ o.productName }}</td>
+    <td>{{ o.quantity }}</td>
+    <td>₹ {{ o.totalPrice }}</td>
+    <td>{{ o.deliveryAddress }}</td>
+    <td>
+  <span [ngClass]="o.deleted ? 'status-deleted' : 'status-active'">
+    {{ o.deleted ? 'Deleted' : 'Active' }}
+  </span>
+    </td>
+    <td>
+      <button class="edit-btn" (click)="edit(o)">Edit</button>
+      <button class="delete-btn" (click)="delete(o.id)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+
+</table>
+
+<!-- MODAL -->
+<div class="modal-overlay" *ngIf="isModalOpen">
+  <div class="modal-card">
+
+    <h3>{{ editingId ? 'Update Order' : 'Create Order' }}</h3>
+
+    <input [(ngModel)]="selectedOrder.customerName" placeholder="Customer Name">
+    <input [(ngModel)]="selectedOrder.productName" placeholder="Product Name">
+    <input type="number" [(ngModel)]="selectedOrder.quantity" placeholder="Quantity">
+    <input type="number" [(ngModel)]="selectedOrder.totalPrice" placeholder="Total Price">
+    <input [(ngModel)]="selectedOrder.deliveryAddress" placeholder="Delivery Address">
+
+    <div class="modal-actions">
+      <button *ngIf="editingId === null"
+              class="primary-btn"
+              (click)="create()">Create</button>
+
+      <button *ngIf="editingId !== null"
+              class="primary-btn"
+              (click)="update()">Update</button>
+
+      <button class="cancel-btn"
+              (click)="closeModal()">Cancel</button>
+    </div>
+
+  </div>
+</div>

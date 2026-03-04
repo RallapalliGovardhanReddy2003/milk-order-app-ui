@@ -1,0 +1,69 @@
+<div class="login-container">
+
+  <div class="login-card">
+
+    <h2>Welcome Back 👋</h2>
+    <p class="subtitle">Login using Username, Email or Mobile</p>
+
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+
+      <!-- LOGIN ID -->
+      <div class="form-group">
+        <label>Username / Email / Mobile</label>
+        <input
+          type="text"
+          name="loginId"
+          [(ngModel)]="credentials.loginId"
+          required
+          #loginId="ngModel"
+          placeholder="Enter username, email or mobile"
+          autocomplete="username" />
+
+        <small class="error"
+               *ngIf="loginId.invalid && loginId.touched">
+          Login ID is required
+        </small>
+      </div>
+
+      <!-- PASSWORD -->
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="credentials.password"
+          required
+          minlength="4"
+          #password="ngModel"
+          placeholder="Enter your password"
+          autocomplete="current-password" />
+
+        <small class="error"
+               *ngIf="password.invalid && password.touched">
+          Password must be at least 4 characters
+        </small>
+      </div>
+
+      <!-- BUTTON -->
+      <button
+        type="submit"
+        [disabled]="loginForm.invalid || isLoading">
+
+        <span *ngIf="!isLoading">Login</span>
+        <span *ngIf="isLoading">
+          <span class="spinner"></span> Logging in...
+        </span>
+
+      </button>
+
+    </form>
+
+    <!-- BOTTOM TEXT -->
+    <div class="bottom-text">
+      Don't have an account?
+      <a routerLink="/signup">Register here</a>
+    </div>
+
+  </div>
+
+</div>

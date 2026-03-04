@@ -1,0 +1,71 @@
+<h2 class="title">Products Management</h2>
+
+<div class="top-actions">
+  <button class="primary-btn" (click)="getAllProducts()">Load Products</button>
+  <button class="primary-btn add-btn" (click)="openAddModal()">Add Product</button>
+</div>
+
+<table *ngIf="products.length > 0" class="product-table">
+
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Image</th>
+    <th>Price</th>
+    <th>Qty</th>
+    <th>Delivery Address</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let p of products">
+    <td>{{ p.id }}</td>
+    <td>{{ p.productName }}</td>
+    <td><img [src]="p.productImage" class="table-img"></td>
+    <td>₹ {{ p.price }}</td>
+    <td>{{ p.quantity }}</td>
+    <td class="address-cell">
+      {{ formatAddress(p.deliveryAddress) }}
+    </td>
+    <td>
+  <span [ngClass]="p.deleted ? 'status-deleted' : 'status-active'">
+    {{ p.deleted ? 'Deleted' : 'Active' }}
+  </span>
+    </td>
+    <td>
+      <button class="edit-btn" (click)="edit(p)">Edit</button>
+      <button class="delete-btn" (click)="delete(p.id)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+
+</table>
+
+<!-- MODAL -->
+<div class="modal-overlay" *ngIf="isModalOpen">
+  <div class="modal-card">
+
+    <h3>{{ editingId ? 'Update Product' : 'Add Product' }}</h3>
+
+    <input [(ngModel)]="product.productName" placeholder="Product Name">
+    <input [(ngModel)]="product.productImage" placeholder="Image URL">
+    <input type="number" [(ngModel)]="product.price" placeholder="Price">
+    <input type="number" [(ngModel)]="product.quantity" placeholder="Quantity">
+    <input [(ngModel)]="product.description" placeholder="Description">
+
+    <input [(ngModel)]="product.deliveryAddress.doorNo" placeholder="Door No">
+    <input [(ngModel)]="product.deliveryAddress.landmark" placeholder="Landmark">
+    <input [(ngModel)]="product.deliveryAddress.street" placeholder="Street">
+    <input [(ngModel)]="product.deliveryAddress.pincode" placeholder="Pincode">
+
+    <div class="modal-actions">
+      <button *ngIf="editingId === null" class="primary-btn" (click)="save()">Add</button>
+      <button *ngIf="editingId !== null" class="primary-btn" (click)="update()">Update</button>
+      <button class="cancel-btn" (click)="closeModal()">Cancel</button>
+    </div>
+
+  </div>
+</div>

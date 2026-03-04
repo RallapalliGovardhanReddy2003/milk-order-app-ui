@@ -1,0 +1,59 @@
+/* ===== NAVBAR CONTAINER ===== */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  background: linear-gradient(to right, #4CAF50, #2196F3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== TITLE ===== */
+.main-title {
+  font-size: 42px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* ===== NAV LINKS ===== */
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+/* Hover Effect */
+.nav-links a:hover {
+  color: #ffe082;
+}
+
+/* Active Route Styling */
+.active {
+  border-bottom: 3px solid #ffe082;
+  padding-bottom: 5px;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+
+  .main-title {
+    font-size: 28px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+}
